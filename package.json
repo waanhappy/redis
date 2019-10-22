@@ -1,0 +1,43 @@
+{
+  "name": "@webtanzhi/redis",
+  "version": "1.0.1",
+  "description": "A redis tools ",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "NODE_ENV=production rollup -c",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://waanhappy@github.com/waanhappy/rope.git"
+  },
+  "keywords": [
+    "react",
+    "react-project"
+  ],
+  "author": "waanhappy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waanhappy/redis/issues"
+  },
+  "homepage": "https://github.com/waanhappy/redis#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/redis": "^2.8.14",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
+    "prettier-eslint": "^9.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rollup": "^1.19.4",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "redis": "^2.8.0"
+  }
+}

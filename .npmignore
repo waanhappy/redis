@@ -1,0 +1,6 @@
+node_modules
+.vscode
+.npmrc
+rollup.config.js
+src
+.rpt2_cache
