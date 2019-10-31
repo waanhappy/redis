@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://waanhappy@github.com/waanhappy/rope.git"
+    "url": "git+https://waanhappy@github.com/waanhappy/redis.git"
   },
   "keywords": [
     "react",

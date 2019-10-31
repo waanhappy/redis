@@ -12,6 +12,8 @@ export interface Client extends RedisClient {
   asyncQuit: CustomPromisify<RedisClient['quit']>;
 }
 
+export { ClientOpts, RedisClient };
+
 export function createClient(port: number, host?: string, options?: ClientOpts): Client;
 export function createClient(unix_socket: string, options?: ClientOpts): Client;
 export function createClient(redis_url: string, options?: ClientOpts): Client;
@@ -19,15 +21,18 @@ export function createClient(options?: ClientOpts): Client;
 
 export function createClient(...args: any[]) {
   const client: Client = createRedisClient(...args) as Client;
+  return promisifyClient(client);
+}
 
-  client.asyncSet = promisify(client.set).bind(client);
-  client.asyncGet = promisify(client.get).bind(client);
-  client.asyncCommand = promisify(client.send_command).bind(client);
-  client.asyncKeys = promisify(client.keys).bind(client);
-  client.asyncTtl = promisify(client.ttl).bind(client);
-  client.asyncDel = promisify(client.del).bind(client);
-  client.asyncType = promisify(client.type).bind(client);
-  client.asyncQuit = promisify(client.quit).bind(client);
-
-  return client;
+export function promisifyClient(client: RedisClient) {
+  const theClient = client as Client;
+  theClient.asyncSet = promisify(client.set).bind(client);
+  theClient.asyncGet = promisify(client.get).bind(client);
+  theClient.asyncCommand = promisify(client.send_command).bind(client);
+  theClient.asyncKeys = promisify(client.keys).bind(client);
+  theClient.asyncTtl = promisify(client.ttl).bind(client);
+  theClient.asyncDel = promisify(client.del).bind(client);
+  theClient.asyncType = promisify(client.type).bind(client);
+  theClient.asyncQuit = promisify(client.quit).bind(client);
+  return theClient;
 }
