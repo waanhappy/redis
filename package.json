@@ -1,9 +1,11 @@
 {
   "name": "@webtanzhi/redis",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A redis tools ",
   "main": "lib/index.js",
   "scripts": {
+    "prepublish": "jest",
+    "prebuild": "jest",
     "build": "NODE_ENV=production rollup -c",
     "test": "jest"
   },
